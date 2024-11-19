@@ -15,7 +15,9 @@ define Package/mlxsw_spectrum2-firmware/install
 		$(PKG_BUILD_DIR)/mellanox/mlxsw_spectrum2-*.mfa2 \
 		$(1)/lib/firmware/mellanox
 endef
+
 $(eval $(call BuildPackage,mlxsw_spectrum2-firmware))
+
 Package/mlxsw_spectrum3-firmware = $(call Package/firmware-default,Mellanox Spectrum-3 firmware)
 define Package/mlxsw_spectrum3-firmware/install
 	$(INSTALL_DIR) $(1)/lib/firmware/mellanox
@@ -23,7 +25,9 @@ define Package/mlxsw_spectrum3-firmware/install
 		$(PKG_BUILD_DIR)/mellanox/mlxsw_spectrum3-*.mfa2 \
 		$(1)/lib/firmware/mellanox
 endef
+
 $(eval $(call BuildPackage,mlxsw_spectrum3-firmware))
+
 Package/mlxsw_spectrum4-firmware = $(call Package/firmware-default,Mellanox Spectrum-4 firmware)
 define Package/mlxsw_spectrum4-firmware/install
 	$(INSTALL_DIR) $(1)/lib/firmware/mellanox
@@ -31,4 +35,5 @@ define Package/mlxsw_spectrum4-firmware/install
 		$(PKG_BUILD_DIR)/mellanox/mlxsw_spectrum4-*.mfa2 \
 		$(1)/lib/firmware/mellanox
 endef
+
 $(eval $(call BuildPackage,mlxsw_spectrum4-firmware))
