@@ -130,10 +130,16 @@ define Package/brcmfmac-nvram-43455-sdio/install
 		$(1)/lib/firmware/brcm/brcmfmac43455-sdio.raspberrypi,5-model-b.txt
 	$(LN) \
 		brcmfmac43455-sdio.raspberrypi,4-model-b.txt \
+		$(1)/lib/firmware/brcm/brcmfmac43455-sdio.raspberrypi,5-compute-module.txt
+	$(LN) \
+		brcmfmac43455-sdio.raspberrypi,4-model-b.txt \
 		$(1)/lib/firmware/brcm/brcmfmac43455-sdio.Raspberry\ Pi\ Foundation-Raspberry\ Pi\ Compute\ Module\ 4.txt
 	$(LN) \
 		brcmfmac43455-sdio.raspberrypi,4-model-b.txt \
 		$(1)/lib/firmware/brcm/brcmfmac43455-sdio.Raspberry\ Pi\ Foundation-Raspberry\ Pi\ 5\ Model\ B.txt
+	$(LN) \
+		brcmfmac43455-sdio.raspberrypi,4-model-b.txt \
+		$(1)/lib/firmware/brcm/brcmfmac43455-sdio.Raspberry\ Pi\ Foundation-Raspberry\ Pi\ Compute\ Module\ 5.txt
 	$(INSTALL_DATA) \
 		$(PKG_BUILD_DIR)/brcm/brcmfmac43455-sdio.MINIX-NEO\ Z83-4.txt \
 		$(1)/lib/firmware/brcm/
@@ -154,40 +160,6 @@ define Package/brcmfmac-nvram-43455-sdio/install
 		$(1)/lib/firmware/brcm/brcmfmac43455-sdio.pine64,quartz64-b.txt
 endef
 $(eval $(call BuildPackage,brcmfmac-nvram-43455-sdio))
-
-# brcmfmac-firmware-43455-sdio-raspberrypi,4-model-b
-
-Package/brcmfmac-firmware-43455-rpi-4-sdio = $(call Package/firmware-default,Broadcom RPi 4 firmware)
-define Package/brcmfmac-firmware-43455-rpi-4-sdio/install
-	$(INSTALL_DIR) $(1)/lib/firmware/brcm
-	$(INSTALL_DATA) \
-		$(PKG_BUILD_DIR)/cyfmac43455-sdio.raspberrypi,5-model-b.bin \
-		$(1)/lib/firmware/brcm/brcmfmac43455-sdio.raspberrypi,4-model-b.bin
-	$(INSTALL_DATA) \
-		$(PKG_BUILD_DIR)/cyfmac43455-sdio.raspberrypi,5-model-b.clm_blob \
-		$(1)/lib/firmware/brcm/brcmfmac43455-sdio.raspberrypi,4-model-b.clm_blob
-	$(INSTALL_DATA) \
-		$(PKG_BUILD_DIR)/brcmfmac43455-sdio.raspberrypi,5-model-b.txt \
-		$(1)/lib/firmware/brcm/brcmfmac43455-sdio.raspberrypi,4-model-b.txt
-endef
-$(eval $(call BuildPackage,brcmfmac-firmware-43455-rpi-4-sdio))
-
-# brcmfmac-firmware-43455-sdio-raspberrypi,5-model-b
-
-Package/brcmfmac-firmware-43455-rpi-5-sdio = $(call Package/firmware-default,Broadcom RPi 5 firmware)
-define Package/brcmfmac-firmware-43455-rpi-5-sdio/install
-	$(INSTALL_DIR) $(1)/lib/firmware/brcm
-	$(INSTALL_DATA) \
-		$(PKG_BUILD_DIR)/cyfmac43455-sdio.raspberrypi,5-model-b.bin \
-		$(1)/lib/firmware/brcm/brcmfmac43455-sdio.raspberrypi,5-model-b.bin
-	$(INSTALL_DATA) \
-		$(PKG_BUILD_DIR)/cyfmac43455-sdio.raspberrypi,5-model-b.clm_blob \
-		$(1)/lib/firmware/brcm/brcmfmac43455-sdio.raspberrypi,5-model-b.clm_blob
-	$(INSTALL_DATA) \
-		$(PKG_BUILD_DIR)/brcmfmac43455-sdio.raspberrypi,5-model-b.txt \
-		$(1)/lib/firmware/brcm/brcmfmac43455-sdio.raspberrypi,5-model-b.txt
-endef
-$(eval $(call BuildPackage,brcmfmac-firmware-43455-rpi-5-sdio))
 
 Package/brcmfmac-nvram-4356-sdio = $(call Package/firmware-default,Broadcom BCM4356 SDIO NVRAM)
 define Package/brcmfmac-nvram-4356-sdio/install
