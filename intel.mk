@@ -234,13 +234,13 @@ endef
 $(eval $(call BuildPackage,e100-firmware))
 
 i915_deps:=+i915-firmware-dmc +i915-firmware-guc +i915-firmware-huc +i915-firmware-gsc
-Package/i915-firmware = $(call Package/firmware-default,Intel I915 firmware \(meta package\),$(i915_deps))
+Package/i915-firmware = $(call Package/firmware-default,Intel I915 firmware \(meta package\),$(i915_deps),LICENSE.i915)
 define Package/i915-firmware/install
 	true
 endef
 $(eval $(call BuildPackage,i915-firmware))
 
-Package/i915-firmware-dmc = $(call Package/firmware-default,Intel I915 DMC firmware)
+Package/i915-firmware-dmc = $(call Package/firmware-default,Intel I915 DMC firmware,,LICENSE.i915)
 define Package/i915-firmware-dmc/install
 	$(INSTALL_DIR) $(1)/lib/firmware/i915
 	for f in $(PKG_BUILD_DIR)/i915/*_dmc*.bin; do                        \
@@ -250,7 +250,7 @@ define Package/i915-firmware-dmc/install
 endef
 $(eval $(call BuildPackage,i915-firmware-dmc))
 
-Package/i915-firmware-guc = $(call Package/firmware-default,Intel I915 GUC firmware)
+Package/i915-firmware-guc = $(call Package/firmware-default,Intel I915 GUC firmware,,LICENSE.i915)
 define Package/i915-firmware-guc/install
 	$(INSTALL_DIR) $(1)/lib/firmware/i915
 	for f in $(PKG_BUILD_DIR)/i915/*_guc*.bin; do                        \
@@ -260,7 +260,7 @@ define Package/i915-firmware-guc/install
 endef
 $(eval $(call BuildPackage,i915-firmware-guc))
 
-Package/i915-firmware-huc = $(call Package/firmware-default,Intel I915 HUC firmware)
+Package/i915-firmware-huc = $(call Package/firmware-default,Intel I915 HUC firmware,,LICENSE.i915)
 define Package/i915-firmware-huc/install
 	$(INSTALL_DIR) $(1)/lib/firmware/i915
 	for f in $(PKG_BUILD_DIR)/i915/*_huc*.bin; do                        \
@@ -270,7 +270,7 @@ define Package/i915-firmware-huc/install
 endef
 $(eval $(call BuildPackage,i915-firmware-huc))
 
-Package/i915-firmware-gsc = $(call Package/firmware-default,Intel I915 GSC firmware)
+Package/i915-firmware-gsc = $(call Package/firmware-default,Intel I915 GSC firmware,,LICENSE.i915)
 define Package/i915-firmware-gsc/install
 	$(INSTALL_DIR) $(1)/lib/firmware/i915
 	for f in $(PKG_BUILD_DIR)/i915/*_gsc*.bin; do                        \
@@ -280,7 +280,7 @@ define Package/i915-firmware-gsc/install
 endef
 $(eval $(call BuildPackage,i915-firmware-gsc))
 
-Package/ivpu-firmware = $(call Package/firmware-default,Intel VPU firmware)
+Package/ivpu-firmware = $(call Package/firmware-default,Intel VPU firmware,,LICENSE.intel_vpu)
 define Package/ivpu-firmware/install
 	$(INSTALL_DIR) $(1)/lib/firmware/intel/vpu
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/intel/vpu/*.bin $(1)/lib/firmware/intel/vpu
